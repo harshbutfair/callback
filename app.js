@@ -3,9 +3,10 @@ const posts = [
     {title: 'Post Two', body: 'This is post two'}
 ];
 
-function createPost(post) {
+function createPost(post, callback) {
     setTimeout(function(){
         posts.push(post);
+        callback();
     }, 2000)
 }
 
@@ -20,10 +21,7 @@ function getPosts() {
     }, 1000)
 }
 
-createPost({title: 'Post Three', body: 'This is post three'});
+createPost({title: 'Post Three', body: 'This is post three'}, getPosts);
 
-getPosts();
+// getPosts();
 
-console.log(posts);
-
-// console.log(posts);
